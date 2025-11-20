@@ -1,0 +1,322 @@
+.profile-section {
+  margin: 30px 0;
+  padding: 35px 40px;
+  background: linear-gradient(135deg, #f9fbff 0%, #ffffff 100%);
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(42, 82, 152, 0.12);
+  border: 1px solid #e0e7f0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Decorative background elements */
+.profile-section::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(42, 82, 152, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.6s ease;
+}
+
+.profile-section::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  transition: transform 0.6s ease;
+}
+
+.profile-section:hover {
+  background: linear-gradient(135deg, #f1f6ff 0%, #fafcff 100%);
+  box-shadow: 0 8px 30px rgba(42, 82, 152, 0.18);
+  transform: translateY(-3px);
+  border-left: 5px solid #2a5298;
+}
+
+.profile-section:hover::before {
+  transform: translate(-20px, -20px) scale(1.1);
+}
+
+.profile-section:hover::after {
+  transform: translate(20px, 20px) scale(1.1);
+}
+
+/* Accent bar on left side */
+.profile-section {
+  border-left: 4px solid transparent;
+  background-clip: padding-box;
+}
+
+/* Section Title Styling */
+.section-title {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #1e3c72;
+  margin-bottom: 25px;
+  padding-bottom: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  transition: color 0.3s ease;
+}
+
+/* Animated underline effect */
+.section-title::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd700, #ffed4e);
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(255, 215, 0, 0.4);
+  transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #2a5298, #1e3c72);
+  border-radius: 2px;
+  transition: opacity 0.4s ease;
+}
+
+.profile-section:hover .section-title::before {
+  width: 100%;
+}
+
+.profile-section:hover .section-title::after {
+  opacity: 0;
+}
+
+/* Icon before title (optional enhancement) */
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section-title::before {
+  content: '👤';
+  font-size: 1.4rem;
+  position: static;
+  width: auto;
+  height: auto;
+  background: none;
+  box-shadow: none;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Profile Text Styling */
+.profile-text {
+  font-size: 1.05rem;
+  line-height: 1.9;
+  color: #444;
+  text-align: justify;
+  position: relative;
+  z-index: 1;
+  padding: 15px 0;
+  transition: color 0.3s ease;
+}
+
+/* First letter styling */
+.profile-text::first-letter {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #2a5298;
+  float: left;
+  line-height: 1;
+  margin: 5px 10px 0 0;
+  text-shadow: 2px 2px 4px rgba(42, 82, 152, 0.2);
+}
+
+.profile-section:hover .profile-text {
+  color: #333;
+}
+
+/* Highlight key phrases (optional - add spans around key words in HTML) */
+.profile-text strong,
+.profile-text .highlight {
+  color: #1e3c72;
+  font-weight: 600;
+  position: relative;
+  padding: 0 2px;
+}
+
+.profile-text strong::after,
+.profile-text .highlight::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ffd700, transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.profile-section:hover .profile-text strong::after,
+.profile-section:hover .profile-text .highlight::after {
+  opacity: 1;
+}
+
+/* Corner decoration */
+.profile-section {
+  position: relative;
+}
+
+.profile-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 60px 60px 0;
+  border-color: transparent rgba(42, 82, 152, 0.06) transparent transparent;
+  border-top-right-radius: 15px;
+  transition: border-color 0.3s ease;
+  pointer-events: none;
+}
+
+.profile-section:hover::after {
+  border-color: transparent rgba(255, 215, 0, 0.1) transparent transparent;
+}
+
+/* Quote mark decoration (optional) */
+.profile-text::before {
+  content: '"';
+  font-size: 5rem;
+  position: absolute;
+  top: -15px;
+  left: -10px;
+  color: rgba(42, 82, 152, 0.08);
+  font-family: Georgia, serif;
+  font-weight: 700;
+  line-height: 1;
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+
+.profile-section:hover .profile-text::before {
+  color: rgba(255, 215, 0, 0.15);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .profile-section {
+    padding: 25px 20px;
+    margin: 20px 0;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+  }
+
+  .profile-text {
+    font-size: 1rem;
+    line-height: 1.8;
+  }
+
+  .profile-text::first-letter {
+    font-size: 2.5rem;
+    margin: 3px 8px 0 0;
+  }
+
+  .profile-text::before {
+    font-size: 4rem;
+    top: -10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-section {
+    padding: 20px 15px;
+    border-radius: 10px;
+  }
+
+  .section-title {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+
+  .profile-text {
+    font-size: 0.95rem;
+    line-height: 1.7;
+  }
+
+  .profile-text::first-letter {
+    font-size: 2rem;
+  }
+
+  .section-title::before {
+    font-size: 1.2rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .profile-section {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+
+  .profile-section::before,
+  .profile-section::after,
+  .profile-text::before {
+    display: none;
+  }
+
+  .profile-section:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .section-title::before {
+    display: none;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .profile-section,
+  .profile-section::before,
+  .profile-section::after,
+  .section-title::before,
+  .section-title::after {
+    transition: none;
+    animation: none;
+  }
+}

@@ -1,72 +1,16 @@
+<div class="app-container">
+  <div class="cv-container">
+    <!-- Header -->
+    <app-header></app-header>
 
-<div class="cv-container">
-  <header class="cv-header">
-    <h1 class="name">Arjee Emmanuel Abella</h1>
-    <div class="contact-info">
-      <span class="contact-item">
-        <strong>Location:</strong> Pulung Maragul, AC
-      </span>
-      <span class="separator">•</span>
-      <span class="contact-item">
-        <strong>Mobile:</strong> 0936 324 5906
-      </span>
-      <span class="separator">•</span>
-      <span class="contact-item">
-        <strong>E-Mail:</strong>
-        <a href="mailto:arodriguez@email.com">arjeeemmanuelabella.com</a>
-      </span>
-    </div>
-    <div class="divider"></div>
-  </header>
+    <!-- Main Content -->
+    <main class="cv-content">
+      <app-personalprofile></app-personalprofile>
+      <app-skills></app-skills>
+      <app-technical-skills></app-technical-skills>
+    </main>
 
-  <main class="cv-content">
-    <section class="profile-section">
-      <h2 class="section-title">PERSONAL PROFILE</h2>
-      <p class="profile-text">
-        A dedicated and detail-oriented Web Developer with strong experience in full-stack development, focused on creating intuitive and engaging web experiences. I have successfully built and delivered a variety of projects, from responsive websites to dynamic web applications, enhancing user interaction and performance through clean, efficient code. I am seeking a Web Developer position where I can apply my skills in both frontend and backend development to craft seamless and impactful digital solutions.
-      </p>
-    </section>
-
-    <section class="skills-section">
-      <h2 class="section-title">KEY SKILLS</h2>
-      <div class="skills-grid">
-        <div class="skills-column">
-          <ul class="skills-list">
-            <li>Frontend Development (HTML5, CSS3, JavaScript)</li>
-            <li>Modern Frameworks (Angular, React, Vue.js)</li>
-            <li>Responsive & Mobile-First Design</li>
-            <li>UI/UX Design Principles</li>
-            <li>Version Control with Git and GitHub</li>
-          </ul>
-        </div>
-        <div class="skills-column">
-          <ul class="skills-list">
-            <li>Backend Development (Node.js, Python, PHP)</li>
-            <li>Database Management (MySQL, MongoDB)</li>
-            <li>RESTful API Design and Integration</li>
-            <li>Performance Optimization and SEO</li>
-            <li>Agile Development and Team Collaboration</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="technical-skills">
-      <h2 class="section-title">TECHNICAL PROFICIENCIES</h2>
-      <div class="tech-categories">
-        <div class="tech-category">
-          <h3 class="category-title">Design Tools</h3>
-          <p class="tech-items">Adobe XD, Figma, Photoshop, Illustrator, Sketch</p>
-        </div>
-        <div class="tech-category">
-          <h3 class="category-title">Development</h3>
-          <p class="tech-items">TypeScript, JavaScript ES6+, SASS/SCSS, Bootstrap, Tailwind CSS</p>
-        </div>
-        <div class="tech-category">
-          <h3 class="category-title">Tools & Platforms</h3>
-          <p class="tech-items">VS Code, Docker, AWS, Azure, Firebase, Netlify</p>
-        </div>
-      </div>
-    </section>
-  </main>
+    <!-- Footer -->
+    <app-footer></app-footer>
+  </div>
 </div>
