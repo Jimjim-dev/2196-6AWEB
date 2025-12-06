@@ -1,0 +1,36 @@
+functionsDirectory = "C:\\Act Abella\\2196-6AWEB\\2196-6AWEB\\angularroutinglab\\netlify\\functions"
+functionsDirectoryOrigin = "ui"
+headers = []
+redirects = []
+
+[functions]
+
+[functions."*"]
+
+[[plugins]]
+origin = "default"
+package = "@netlify/angular-runtime"
+
+[plugins.inputs]
+
+[build]
+publish = "C:\\Act Abella\\2196-6AWEB\\2196-6AWEB\\angularroutinglab\\dist\\AngularRoutingLab_Act3\\browser"
+publishOrigin = "inline"
+commandOrigin = "ui"
+base = "C:\\Act Abella\\2196-6AWEB\\2196-6AWEB\\angularroutinglab"
+command = "npm run build"
+functions = "C:\\Act Abella\\2196-6AWEB\\2196-6AWEB\\angularroutinglab\\netlify\\functions"
+
+[build.environment]
+
+[build.processing]
+
+[build.processing.css]
+
+[build.processing.html]
+
+[build.processing.images]
+
+[build.processing.js]
+
+[build.services]
