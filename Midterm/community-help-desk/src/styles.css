@@ -1,0 +1,573 @@
+/* =============================================
+   GLOBAL STYLES - styles.css
+   For: Typography, Forms, Cards, Buttons, Layouts
+   ============================================= */
+
+/* --- COLOR PALETTE --- */
+:root {
+  --bg-color: #0a0612;       /* Very Dark Purple-Black */
+  --card-bg: #140a1f;        /* Slightly lighter card background */
+  --text-main: #e0e0e0;      /* Off-White (Best for reading) */
+  --text-muted: #a0a0a0;     /* Grey for less important text */
+  --neon-main: #ff006e;      /* NEON PINK (For accents only) */
+  --neon-secondary: #8b5cf6; /* ELECTRIC PURPLE */
+  --neon-dim: #6b2d5c;       /* Dark Pink-Purple Borders */
+
+  /* Additional violet shades */
+  --violet-light: #c084fc;   /* Light violet */
+  --violet-medium: #a78bfa;  /* Medium violet */
+  --violet-bright: #e879f9;  /* Bright violet */
+  --violet-dark: #7c3aed;    /* Dark violet */
+}
+
+/* --- BASE STYLES --- */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Critical fix for clickability */
+* {
+  pointer-events: auto;
+}
+
+/* Ensure all interactive elements are on top */
+button, .btn, a, input, textarea, select, label {
+  position: relative;
+  z-index: 10;
+  pointer-events: auto !important;
+  cursor: pointer;
+}
+
+/* --- TYPOGRAPHY --- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Orbitron', sans-serif;
+  color: var(--neon-main);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 15px;
+}
+
+/* Main Page Headings (like OPERATIONAL DASHBOARD) */
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: 4px;
+  background: linear-gradient(135deg, #fff 0%, #ff006e 50%, #8b5cf6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow:
+    0 0 20px rgba(255, 0, 110, 0.4),
+    0 0 40px rgba(139, 92, 246, 0.2);
+  animation: headerPulse 3s ease-in-out infinite;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+h1::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff006e, #8b5cf6, transparent);
+  animation: lineGlow 2s ease-in-out infinite;
+}
+
+h2 {
+  font-size: 2rem;
+  letter-spacing: 3px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+}
+
+p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Special text classes */
+.intro-text, .description-text {
+  color: #b8b8b8 !important;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  font-weight: 300;
+}
+
+.status-message {
+  color: var(--neon-main) !important;
+  font-weight: 600;
+  font-size: 1rem;
+  text-shadow: 0 0 10px rgba(255, 0, 110, 0.5);
+  animation: statusBlink 2s ease-in-out infinite;
+}
+
+/* --- LINKS --- */
+a {
+  color: var(--neon-secondary);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: var(--neon-main);
+  text-shadow: 0 0 10px var(--neon-main);
+  text-decoration: underline;
+}
+
+/* --- BUTTONS --- */
+button, .btn, input[type="submit"], input[type="button"] {
+  background: linear-gradient(180deg, #1a0f2e 0%, #0a0515 100%);
+  border: 1px solid var(--neon-dim);
+  color: var(--neon-main);
+  padding: 12px 28px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  cursor: pointer !important;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+  font-size: 0.9rem;
+  letter-spacing: 1.5px;
+  display: inline-block;
+  text-align: center;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  position: relative;
+  z-index: 100;
+  pointer-events: auto !important;
+}
+
+button:hover, .btn:hover {
+  border-color: var(--neon-main);
+  text-shadow: 0 0 10px var(--neon-main);
+  box-shadow: 0 0 15px rgba(255, 0, 110, 0.4), 0 0 30px rgba(139, 92, 246, 0.2);
+  transform: translateY(-2px);
+  background: linear-gradient(180deg, #2a1f3e 0%, #1a0f2e 100%);
+}
+
+button:active, .btn:active {
+  transform: translateY(0);
+  box-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
+}
+
+button:focus, .btn:focus {
+  outline: 2px solid var(--neon-main);
+  outline-offset: 2px;
+}
+
+button:disabled, .btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed !important;
+  transform: none;
+}
+
+button:disabled:hover {
+  border-color: var(--neon-dim);
+  text-shadow: none;
+  box-shadow: none;
+}
+
+/* --- FORM INPUTS --- */
+input, textarea, select {
+  background-color: #050505 !important;
+  border: 1px solid var(--neon-dim) !important;
+  color: #fff !important;
+  padding: 12px 15px;
+  border-radius: 4px;
+  font-family: 'Roboto Mono', monospace;
+  transition: all 0.3s ease;
+  width: 100%;
+  font-size: 0.9rem;
+  cursor: text !important;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 50;
+  pointer-events: auto !important;
+}
+
+input:hover, textarea:hover, select:hover {
+  border-color: rgba(139, 92, 246, 0.5) !important;
+  box-shadow: 0 0 5px rgba(139, 92, 246, 0.2);
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none !important;
+  border-color: var(--neon-main) !important;
+  box-shadow: 0 0 12px rgba(255, 0, 110, 0.4), 0 0 20px rgba(139, 92, 246, 0.2) !important;
+  background-color: #0a0515 !important;
+  z-index: 51;
+}
+
+input::placeholder, textarea::placeholder {
+  color: #666 !important;
+  opacity: 0.7;
+}
+
+select {
+  cursor: pointer !important;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ff006e' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  padding-right: 35px;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+/* Form Labels */
+label {
+  display: block;
+  color: #fff;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 600;
+  cursor: default;
+  position: relative;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Form Groups */
+.form-group, .field-group {
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.form-group label, .field-group label {
+  color: #e0e0e0;
+}
+
+/* --- CODE BLOCKS --- */
+code, pre {
+  background-color: #0a0612 !important;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  border-radius: 6px;
+  font-family: 'Roboto Mono', monospace;
+  padding: 15px;
+  color: #8b5cf6;
+  overflow-x: auto;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.2);
+}
+
+code {
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+pre {
+  display: block;
+  margin: 20px 0;
+  line-height: 1.6;
+}
+
+/* JSON Syntax Highlighting */
+.json-key, .syntax-key {
+  color: #8b5cf6;
+  text-shadow: 0 0 5px rgba(139, 92, 246, 0.3);
+}
+
+.json-string, .syntax-string {
+  color: #c084fc;
+  text-shadow: 0 0 5px rgba(192, 132, 252, 0.3);
+}
+
+.json-value, .syntax-value {
+  color: #a78bfa;
+  text-shadow: 0 0 5px rgba(167, 139, 250, 0.3);
+}
+
+.json-bracket, .syntax-bracket {
+  color: #ff006e;
+  font-weight: bold;
+}
+
+.json-number {
+  color: #e879f9;
+}
+
+.json-boolean {
+  color: #c084fc;
+  font-weight: bold;
+}
+
+/* --- STANDARD CARDS --- */
+div[style*="border"], .card, .form-card {
+  border: 1px solid var(--neon-dim) !important;
+  background-color: var(--card-bg) !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.15);
+  padding: 20px !important;
+  transition: all 0.3s ease;
+}
+
+div[style*="border"]:hover, .card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.25);
+}
+
+div[style*="border"] p {
+  color: #e0e0e0 !important;
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+div[style*="border"] strong,
+div[style*="border"] h3 {
+  color: #fff !important;
+  letter-spacing: 0.5px;
+}
+
+/* Form specific cards - don't lift on hover */
+.form-card {
+  padding: 30px !important;
+}
+
+.form-card:hover {
+  transform: none;
+}
+
+/* Form Headers */
+.form-header, .card-header {
+  text-align: center;
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 0, 110, 0.3);
+}
+
+.form-header h2, .card-header h2 {
+  margin-bottom: 0;
+}
+
+/* --- BENTO GRID LAYOUT --- */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 10px 0;
+  margin-bottom: 30px;
+}
+
+/* --- GLASS CARDS --- */
+.glass-card {
+  background: rgba(139, 92, 246, 0.04);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 0, 110, 0.15);
+  border-radius: 16px;
+  padding: 25px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  animation: fadeSlideUp 0.6s ease-out forwards;
+  opacity: 0;
+  z-index: 1;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  background: rgba(139, 92, 246, 0.1);
+  border-color: var(--neon-main);
+  box-shadow: 0 15px 40px -10px rgba(255, 0, 110, 0.5);
+}
+
+.glass-card h3 {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-top: 15px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  position: relative;
+  z-index: 2;
+}
+
+.glass-card p {
+  color: #a0a0a0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  font-weight: 500;
+  position: relative;
+  z-index: 2;
+}
+
+/* Icon in glass cards */
+.glass-card .card-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+  filter: drop-shadow(0 5px 15px rgba(255, 0, 110, 0.3));
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover .card-icon {
+  transform: scale(1.1) translateY(-5px);
+  filter: drop-shadow(0 8px 25px rgba(255, 0, 110, 0.6));
+}
+
+/* --- CARD BADGES --- */
+.card-badge {
+  display: inline-block;
+  background: rgba(255, 0, 110, 0.15);
+  color: var(--neon-main);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: bold;
+  font-family: 'Orbitron', sans-serif;
+  margin-bottom: 15px;
+  border: 1px solid rgba(255, 0, 110, 0.4);
+}
+
+/* --- ANIMATIONS --- */
+@keyframes fadeSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes headerPulse {
+  0%, 100% {
+    filter: brightness(1) drop-shadow(0 0 10px rgba(255, 0, 110, 0.3));
+  }
+  50% {
+    filter: brightness(1.3) drop-shadow(0 0 20px rgba(255, 0, 110, 0.5));
+  }
+}
+
+@keyframes lineGlow {
+  0%, 100% {
+    opacity: 0.5;
+    box-shadow: 0 0 10px rgba(255, 0, 110, 0.3);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 20px rgba(255, 0, 110, 0.6);
+  }
+}
+
+@keyframes statusBlink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+/* Stagger animation for grid items */
+.glass-card:nth-child(1) { animation-delay: 0.1s; }
+.glass-card:nth-child(2) { animation-delay: 0.2s; }
+.glass-card:nth-child(3) { animation-delay: 0.3s; }
+.glass-card:nth-child(4) { animation-delay: 0.4s; }
+.glass-card:nth-child(5) { animation-delay: 0.5s; }
+.glass-card:nth-child(6) { animation-delay: 0.6s; }
+
+/* --- UTILITY CLASSES --- */
+.text-center {
+  text-align: center;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Ensure elements are clickable */
+button, .btn, a, input, textarea, select, .clickable {
+  pointer-events: auto !important;
+}
+
+/* Prevent text selection on buttons */
+button, .btn {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* Full width button */
+.btn-block, button.block {
+  width: 100%;
+  display: block;
+}
+
+/* Button size variants */
+.btn-sm {
+  padding: 8px 16px;
+  font-size: 0.8rem;
+}
+
+.btn-lg {
+  padding: 14px 32px;
+  font-size: 1rem;
+}
+
+/* --- RESPONSIVE DESIGN --- */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .bento-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .glass-card {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .glass-card {
+    padding: 15px;
+  }
+}
