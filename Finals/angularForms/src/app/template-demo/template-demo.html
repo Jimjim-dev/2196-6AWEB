@@ -1,0 +1,57 @@
+<div class="form-wrapper">
+  <h2>Student Enrollment Form</h2>
+  <form #myForm="ngForm" (ngSubmit)="onSubmit()">
+
+    <input type="text" name="fullname"
+      [(ngModel)]="fullname"
+      placeholder="Full Name" required>
+
+    <input type="email" name="email"
+      [(ngModel)]="email"
+      placeholder="Email Address" required email>
+
+    <input type="text" name="phone"
+      [(ngModel)]="phone"
+      placeholder="Phone Number" required>
+
+    <select name="course" [(ngModel)]="course" required>
+      <option value="" disabled selected>Select Course</option>
+      <option value="BSCS">BSCS</option>
+      <option value="BSIT">BSIT</option>
+      <option value="BSBA">BSBA</option>
+    </select>
+
+    <div class="radio-group">
+      <span>Year Level:</span>
+      <label><input type="radio" name="year"
+        [(ngModel)]="year" value="1st"> 1st</label>
+      <label><input type="radio" name="year"
+        [(ngModel)]="year" value="2nd"> 2nd</label>
+      <label><input type="radio" name="year"
+        [(ngModel)]="year" value="3rd"> 3rd</label>
+      <label><input type="radio" name="year"
+        [(ngModel)]="year" value="4th"> 4th</label>
+    </div>
+
+    <div class="radio-group">
+      <span>Status:</span>
+      <label><input type="radio" name="status"
+        [(ngModel)]="status" value="Regular"> Regular</label>
+      <label><input type="radio" name="status"
+        [(ngModel)]="status" value="Irregular"> Irregular</label>
+    </div>
+
+    <textarea name="notes"
+      [(ngModel)]="notes"
+      placeholder="Additional Notes" rows="3"></textarea>
+
+    <button type="submit" [disabled]="myForm.invalid">Enroll Now</button>
+  </form>
+
+  <div class="result" *ngIf="submitted">
+    <p>✅ Enrolled!</p>
+    <p>Name: {{ fullname }}</p>
+    <p>Course: {{ course }} — {{ year }} Year</p>
+    <p>Status: {{ status }}</p>
+  </div>
+</div>

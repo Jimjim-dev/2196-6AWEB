@@ -1,0 +1,20 @@
+<div class="app-container">
+  <nav class="hud-nav">
+    <div class="nav-brand">Angular Forms</div>
+    <div class="nav-links">
+      <a routerLink="/template" routerLinkActive="active-link">
+        <span class="nav-text">Template Form</span>
+      </a>
+      <a routerLink="/reactive" routerLinkActive="active-link">
+        <span class="nav-text">Reactive Form</span>
+      </a>
+      <a routerLink="/custom" routerLinkActive="active-link">
+        <span class="nav-text">Custom Form</span>
+      </a>
+    </div>
+  </nav>
+
+  <div class="content-area">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div class="form-wrapper">
+  <h2>🎫 Support Ticket</h2>
+  <p class="subtitle">We'll get back to you within 24 hours</p>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <input placeholder="Your Name" formControlName="name">
+    <small *ngIf="isInvalid('name')">Name is required</small>
+
+    <input type="email" placeholder="Email Address" formControlName="email">
+    <small *ngIf="isInvalid('email')">Enter a valid email</small>
+
+    <input placeholder="Phone Number (11 digits)" formControlName="phone">
+    <small *ngIf="isInvalid('phone')">Enter valid 11-digit number</small>
+
+    <select formControlName="category">
+      <option value="" disabled>Select Category</option>
+      <option *ngFor="let c of categories">{{ c }}</option>
+    </select>
+    <small *ngIf="isInvalid('category')">Please select a category</small>
+
+    <div class="radio-group">
+      <span>Priority:</span>
+      <label><input type="radio" formControlName="priority" value="Low"> Low</label>
+      <label><input type="radio" formControlName="priority" value="Medium"> Medium</label>
+      <label><input type="radio" formControlName="priority" value="High"> High</label>
+    </div>
+    <small *ngIf="isInvalid('priority')">Please select priority</small>
+
+    <input placeholder="Subject" formControlName="subject">
+    <small *ngIf="isInvalid('subject')">Subject is required (min 5 chars)</small>
+
+    <textarea formControlName="message" placeholder="Describe your issue..." rows="4"></textarea>
+    <small *ngIf="isInvalid('message')">Message is required (min 10 chars)</small>
+
+    <button type="submit" [disabled]="form.invalid">Submit Ticket</button>
+  </form>
+
+  <div class="result" *ngIf="submitted">
+    <p>✅ Ticket Submitted!</p>
+    <p>Name: {{ form.value.name }}</p>
+    <p>Category: {{ form.value.category }}</p>
+    <p>Priority: {{ form.value.priority }}</p>
+  </div>
+</div>

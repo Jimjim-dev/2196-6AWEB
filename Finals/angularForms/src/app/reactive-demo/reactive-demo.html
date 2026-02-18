@@ -1,0 +1,44 @@
+<div class="form-wrapper">
+  <h2>Employee Registration</h2>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <input placeholder="Full Name" formControlName="fullname">
+    <small *ngIf="isInvalid('fullname')">Name is required (min 3 chars)</small>
+
+    <input type="email" placeholder="Email" formControlName="email">
+    <small *ngIf="isInvalid('email')">Enter a valid email</small>
+
+    <input type="password" placeholder="Password" formControlName="password">
+    <small *ngIf="isInvalid('password')">Minimum 8 characters</small>
+
+    <select formControlName="department">
+      <option *ngFor="let d of departments">{{ d }}</option>
+    </select>
+
+    <div class="radio-group">
+      <span>Gender:</span>
+      <label><input type="radio" formControlName="gender" value="Male"> Male</label>
+      <label><input type="radio" formControlName="gender" value="Female"> Female</label>
+    </div>
+    <small *ngIf="isInvalid('gender')">Please select gender</small>
+
+    <div class="radio-group">
+      <span>Status:</span>
+      <label><input type="radio" formControlName="status" value="Full-time"> Full-time</label>
+      <label><input type="radio" formControlName="status" value="Part-time"> Part-time</label>
+    </div>
+    <small *ngIf="isInvalid('status')">Please select status</small>
+
+    <textarea formControlName="bio" placeholder="Short Bio" rows="3"></textarea>
+
+    <button type="submit" [disabled]="form.invalid">Register Employee</button>
+  </form>
+
+  <div class="result" *ngIf="submitted">
+    <p>✅ Registered!</p>
+    <p>Name: {{ form.value.fullname }}</p>
+    <p>Department: {{ form.value.department }}</p>
+    <p>Status: {{ form.value.status }}</p>
+  </div>
+</div>

@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap');
+
+/* ============================================================
+   UNIFIED FORM STYLES — identical across all 3 components
+   ============================================================ */
+
+:host {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  position: relative;
+  z-index: 1;
+  animation: formReveal 0.55s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes formReveal {
+  from { opacity: 0; transform: translateY(28px) scale(0.985); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+/* ── CARD — same dark forest green as Student Enrollment ── */
+.form-wrapper {
+  background: #3a6b58;
+  border: none;
+  border-radius: 24px;
+  padding: 2.5rem 2.5rem 2.25rem;
+  box-shadow:
+    0 50px 100px rgba(0,0,0,0.45),
+    0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* ── HEADING ── */
+.form-wrapper h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: #F5F5F5;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  font-size: 0.82rem;
+  font-weight: 400;
+  color: rgba(200, 230, 200, 0.72);
+  margin-bottom: 1.6rem;
+  letter-spacing: 0.01em;
+}
+
+/* ── FORM LAYOUT ── */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ── ALL FIELDS: uniform width + height ── */
+input,
+select,
+textarea {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 1.1rem;
+  height: 50px;
+  line-height: 50px;
+  border: none;
+  border-radius: 12px;
+  background: #4d7d6a;
+  color: #F5F5F5;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  outline: none;
+  transition: background 0.18s ease, box-shadow 0.18s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  margin-bottom: 0.55rem;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: rgba(245, 245, 245, 0.45);
+  font-weight: 400;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+  background: #527a68;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  background: #527a68;
+  box-shadow: 0 0 0 2.5px rgba(241, 178, 74, 0.55);
+}
+
+/* ── SELECT ── */
+select {
+  cursor: pointer;
+  color: rgba(245, 245, 245, 0.55);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c8e6c8' stroke-width='1.6' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-color: #4d7d6a;
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  padding-right: 2.75rem;
+}
+
+select option {
+  background: #3a6b58;
+  color: #F5F5F5;
+}
+
+/* ── TEXTAREA ── */
+textarea {
+  height: auto;
+  line-height: 1.55;
+  padding: 0.85rem 1.1rem;
+  resize: vertical;
+  min-height: 100px;
+}
+
+/* ── RADIO GROUP — same height as inputs ── */
+.radio-group {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  box-sizing: border-box;
+  height: 50px;
+  padding: 0 1.1rem;
+  border: none;
+  border-radius: 12px;
+  background: #4d7d6a;
+  flex-wrap: nowrap;
+  margin-bottom: 0.55rem;
+}
+
+.radio-group span {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(200, 230, 200, 0.8);
+  flex-shrink: 0;
+  min-width: 60px;
+}
+
+.radio-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(245, 245, 245, 0.8);
+  cursor: pointer;
+  transition: color 0.15s;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.radio-group label:hover { color: #F5F5F5; }
+
+.radio-group input[type="radio"] {
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 0;
+  border: none;
+  background: none;
+  box-shadow: none;
+  line-height: normal;
+  accent-color: #F1B24A;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── VALIDATION MESSAGES ── */
+small {
+  display: block;
+  font-size: 0.73rem;
+  color: #ffb08a;
+  padding-left: 0.3rem;
+  margin-top: -0.3rem;
+  margin-bottom: 0.45rem;
+  letter-spacing: 0.01em;
+  line-height: 1.3;
+}
+
+/* ── SUBMIT BUTTON ── */
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  height: 52px;
+  margin-top: 1.1rem;
+  border: none;
+  border-radius: 50px;
+  background: #c8b87a;
+  color: #2a4a38;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 18px rgba(180, 160, 80, 0.3);
+}
+
+button[type="submit"]:hover:not(:disabled) {
+  background: #d4c485;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(180, 160, 80, 0.4);
+}
+
+button[type="submit"]:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+button[type="submit"]:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* ── RESULT CARD ── */
+.result {
+  margin-top: 1.5rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(200, 230, 200, 0.18);
+  animation: formReveal 0.4s ease both;
+}
+
+.result p {
+  font-size: 0.875rem;
+  line-height: 1.9;
+  color: rgba(245, 245, 245, 0.85);
+}
+
+.result p:first-child {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #a8d4a8;
+  margin-bottom: 0.45rem;
+  padding-bottom: 0.45rem;
+  border-bottom: 1px solid rgba(200, 230, 200, 0.15);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .form-wrapper {
+    padding: 1.75rem 1.4rem 1.6rem;
+    border-radius: 20px;
+  }
+  .form-wrapper h2 { font-size: 1.5rem; }
+  .radio-group {
+    flex-wrap: wrap;
+    height: auto;
+    padding: 0.7rem 1rem;
+    gap: 0.6rem;
+  }
+}
